@@ -28,7 +28,7 @@ We'll assume you've already [installed](https://docs.djangoproject.com/en/1.8/in
 		
 		$ mkvirtualenv hacks_hackers_django
 
-	Whereas 'hacks_hackers_django' can be substituted for whatever you want you want to call your virtual environmen. This will give you:
+	Whereas 'hacks_hackers_django' can be substituted for whatever you want you want to call your virtual environment. This will give you:
 
 		New python executable in hacks_hackers_django/bin/python2.7
 		Also creating executable in hacks_hackers_django/bin/python
@@ -46,14 +46,14 @@ We'll assume you've already [installed](https://docs.djangoproject.com/en/1.8/in
 		Successfully installed django
 		Cleaning up...
 
-If you were starting a new Django project from scratch, there are several other commands would run to set up the project's directory with default files and settings. That's all really well documented [here](https://docs.djangoproject.com/en/1.8/intro/tutorial01/#creating-a-project), but if you are just cloning/forking this repo, you can skip all of that.
+If you were starting a new Django project from scratch, you would have to run several other commands to set up the project's directory with default files and settings. That's all really well documented [here](https://docs.djangoproject.com/en/1.8/intro/tutorial01/#creating-a-project), but if you are just cloning/forking this repo, you can skip all of that.
 
 Note that we're using SQLite for our database, which is Django's default, so nothing to change there.
 
 The Model Layer
 ---------------
 
-By using Django's object-relational mapper, we can define the structure of our app's data in one place, instead of having it defined in both SQL and Python, with the possibility of conflicts. 
+By using Django's object-relational mapper, we can define the structure of our app's data in one place, instead of defining in both SQL and Python, with the possibility of conflicts. 
 
 First, let's establish some basic requirements for our app:
 
@@ -62,7 +62,7 @@ First, let's establish some basic requirements for our app:
 *	Each question can have multiple possible choices;
 *	Each question must have at least one answer.
 
-The outline for this data structure belongs in [quiz/models.py](https://github.com/gordonje/hacks_hackers_django/blob/master/quiz/models.py). Each class in this file is a subclass of django.db.models.Model so that it maps to a table in our database. Each attribute of the class maps to a column in our database, and we set the data type for these columns by choosing from which django.db.models.fields subclass (e.g., CharField, IntegerField, BooleanField) the attribute will inherit.
+The outline for this data structure belongs in [quiz/models.py](https://github.com/gordonje/hacks_hackers_django/blob/master/quiz/models.py). Each class in this file is a subclass of django.db.models.Model so that it maps to a table in our database. Each attribute of the class maps to a column in our database, and we set the data type for these columns by choosing from which Field subclass (e.g., CharField, IntegerField, BooleanField) the attribute will inherit.
 
 Check the Django documentation for more about the [models syntax](https://docs.djangoproject.com/en/1.8/topics/db/models/) and [field types and options](https://docs.djangoproject.com/en/1.8/ref/models/fields/#module-django.db.models.fields).
 
