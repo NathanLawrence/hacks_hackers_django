@@ -14,7 +14,10 @@ def quiz_overview(request,quiz_id):
   try:
   	quiz = Quiz.objects.get(id=quiz_id)
   except Quiz.DoesNotExist:
+  	#Django has a bunch of built in HTTP headers for different errors. This is the 404 header.
   	return HttpResponseNotFound("<h1>That quiz does not exist.</h1>")
 
-  html = "<h1>Quiz Overview</h1>"
+  html = "<h1>Quiz Overview for" + quiz.title + "</h1>"
+
+  #This is a generic HTTP response header. Just like with the 404, the page code is sent as a string.
   return HttpResponse(html)
